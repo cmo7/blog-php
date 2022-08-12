@@ -7,6 +7,9 @@ use function Database\connect;
 use function Database\disconnect;
 use function Database\query;
 
+/**
+ * Signs up the user in the system, creating a new user in the database.
+ */
 function signup($username, $password) {
     $conn = connect();
     $password = password_hash($password, PASSWORD_DEFAULT);
@@ -15,6 +18,9 @@ function signup($username, $password) {
     disconnect($conn);
 }
 
+/**
+ * Logs the user in and returns the user data.
+ */
 function login($username, $password) {
     $conn = connect();
     $query = "SELECT id, username, password FROM users " 
@@ -26,13 +32,20 @@ function login($username, $password) {
         header("location: /");
     }
     echo "Nombre de usuario o password incorrectos";
+    return false;
 }
 
+/**
+ * Logs the user out.
+ */
 function logout() {
     session_destroy();
     header("location: /");
 }
 
+/**
+ * Returns true if the user is logged in, false otherwise.
+ */
 function is_logged_in() {
     return isset($_SESSION["user"]);
 }

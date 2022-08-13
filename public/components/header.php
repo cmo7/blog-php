@@ -10,6 +10,7 @@ use function Auth\is_logged_in;
                 <li>Hola: <?php echo $_SESSION["user"]["username"] ?></li>
                 <li><a href="/">Inicio</a></li>
                 <li><a href="/logout.php">Logout</a></li>
+                <li><a href="/new-post.php">New Post</a></li>
             </ul>
         <?php } else { ?>
             <!-- Barra de menú de gente que no ha accedido -->

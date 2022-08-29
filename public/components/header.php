@@ -8,15 +8,16 @@ use function Auth\is_logged_in;
             <!-- Barra de menú de usuarios logeados -->
             <ul>
                 <li>Hola: <?php echo $_SESSION["user"]["username"] ?></li>
-                <li>Inicio</li>
-                <li>Logout</li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/new-post.php">Nuevo Post</a></li>
+                <li><a href="/auth/controller-logout.php">Logout</a></li>
             </ul>
         <?php } else { ?>
             <!-- Barra de menú de gente que no ha accedido -->
             <ul>
-                <li>Inicio</li>
-                <li>Registro</li>
-                <li>Acceder</li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/signup.php">Registro</a></li>
+                <li><a href="/login.php">Acceder</a></li>
             </ul>
         <?php } ?>
 

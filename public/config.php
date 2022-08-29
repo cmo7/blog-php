@@ -6,3 +6,8 @@ $database_config = array(
     "user" => "postgres",
     "password" => "postgres"
 );
+
+$metadata_config = array(
+    "title" => "Mi Blog",
+    "domain" => "miblog.example"
+);

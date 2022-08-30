@@ -1,13 +1,16 @@
 <?php
     require_once __DIR__ . "/lib/model-post.php";
 
-    use Post;
+    use function Post\get as get_post;
 
     if (!isset($_GET["id"])) {
         header("location: /");
     }
     $post_id = $_GET["id"];
-    $post = Post\get($post_id);
+    $post = get_post($post_id);
+    if (!$post) {
+        header ("location: /");
+    }
 
 ?>
 <!DOCTYPE html>

@@ -1,17 +1,12 @@
 <?php 
 session_start();
 
-require_once __DIR__ . "/lib/database.php";
+require_once __DIR__ . "/lib/model-post.php";
 
-use function Database\connect;
-use function Database\query;
-use function Database\disconnect;
+use function Post\get_all as get_all_posts;
 
-$query = "SELECT id, title FROM posts;";
+$posts = get_all_posts();
 
-$conn = connect();
-$posts = query($conn, $query);
-disconnect($conn);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -27,7 +22,11 @@ disconnect($conn);
     <!-- Mostrar todos los posts -->
     <?php 
         foreach ($posts as $post) {
-            echo "<h2>" . $post["title"] . "</h2>";
+            echo "<h2>";
+            echo '<a href="/post.php?id='. $post["id"] . '">';
+            echo $post["title"];
+            echo '</a>';
+            echo "</h2>";
         }
     ?>
 </body>

@@ -17,12 +17,22 @@ function get($id) {
     if (!$result) {
         return null;
     }
-    
+
     return $result[0];
 }
 
 function get_all() {
+    $query = "SELECT * FROM posts;";
 
+    $conn = connect();
+    $result = query($conn, $query);
+    disconnect($conn);
+
+    if (!$result) {
+        return null;
+    }
+
+    return $result;
 }
 
 function create($data) {

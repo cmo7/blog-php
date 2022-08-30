@@ -1,5 +1,5 @@
 <?php
-namespace Post;
+namespace User;
 
 require_once __DIR__ . "/database.php";
 
@@ -8,8 +8,7 @@ use function Database\query;
 use function Database\disconnect;
 
 function get($id) {
-    $query = "SELECT * FROM posts WHERE id = $id";
-
+    $query = "SELECT * FROM users WHERE id = $id";
     $conn = connect();
     $result = query($conn, $query);
     disconnect($conn);
@@ -22,17 +21,7 @@ function get($id) {
 }
 
 function get_all() {
-    $query = "SELECT * FROM posts;";
 
-    $conn = connect();
-    $result = query($conn, $query);
-    disconnect($conn);
-
-    if (!$result) {
-        return Array();
-    }
-
-    return $result;
 }
 
 function create($data) {

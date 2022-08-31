@@ -7,6 +7,10 @@ use function Auth\login;
 $username = $_POST["username"];
 $password = $_POST["password"];
 
-login($username, $password);
-
-header("location: /");
+if(login($username, $password)) {
+    header("location: /");
+}
+else {
+    $_SESSION["ERROR"] = "Nombre de usuario o password incorrectos";
+    header("location: /login.php");
+}

@@ -31,6 +31,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $post["title"] ?></title>
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
     <?php require __DIR__ . "/components/header.php" ?>
@@ -42,9 +43,9 @@
     <div class="comments">
     <?php 
         foreach ($comments as $comment) {
-            echo "<div>";
+            echo '<div class="comment">';
             echo "<h4>" . $comment["title"] . "</h4>";
-            echo "<div>" . "por: " . $comment["author_id"] . "</div>";
+            echo "<div>" . "por: " . $comment["username"] . "</div>";
             echo $comment["content"];
             echo "</div>";
         }

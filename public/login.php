@@ -13,10 +13,19 @@ if (is_logged_in()) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acceso</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
     <?php require __DIR__ . "/components/header.php"?>
     <h1>Acceso</h1>
+    <div class="message">
+        <?php 
+            if (isset($_SESSION["ERROR"])) {
+                echo $_SESSION["ERROR"];
+                $_SESSION["ERROR"] = null;
+            }
+        ?>
+    </div>
     <form action="/auth/controller-login.php" method="post">
         <label for="username">Nombre de usuario</label>
         <input type="text" name="username" id="username">

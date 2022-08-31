@@ -8,7 +8,9 @@ use function Auth\login;
 $username = $_POST["username"];
 $password = $_POST["password"];
 
-signup($username, $password);
-login($username, $password);
+if (signup($username, $password)) {
+    login($username, $password);
+    header("location: /");
+}
 
-header("location: /");
+header("location: /signup.php");

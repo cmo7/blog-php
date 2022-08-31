@@ -34,7 +34,19 @@ function get_all() {
 }
 
 function get_all_by_post($post_id) {
-    $query = "SELECT * FROM comments WHERE post_id = $post_id;";
+    $query = 
+    "SELECT 
+        comments.id,
+        comments.post_id,
+        users.username,
+        comments.title,
+        comments.content,
+        comments.author_id
+    FROM comments
+    INNER JOIN users
+    ON comments.author_id = users.id
+    WHERE post_id = $post_id;";
+
     $conn = connect();
     $result = query($conn, $query);
     disconnect($conn);

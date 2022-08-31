@@ -28,3 +28,15 @@ CREATE TABLE comments (
     created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
     last_access TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
+
+-- @block 
+SELECT 
+    comments.id,
+    comments.post_id,
+    users.username,
+    comments.title,
+    comments.content
+FROM comments
+INNER JOIN users
+ON comments.author_id = users.id
+WHERE post_id = 1;

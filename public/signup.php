@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . "/lib/auth.php";
+
 use function Auth\is_logged_in;
+
 session_start();
 if (is_logged_in()) {
     header("location: /");
@@ -8,14 +10,17 @@ if (is_logged_in()) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
+    <link rel="stylesheet" href="/assets/main.css">
 </head>
+
 <body>
-    <?php require __DIR__ . "/components/header.php"?>
+    <?php require __DIR__ . "/components/header.php" ?>
     <h1>Registro</h1>
     <form action="/auth/controller-signup.php" method="post">
         <label for="username">Nombre de usuario</label>
@@ -28,4 +33,5 @@ if (is_logged_in()) {
     </form>
     <a href="./login.php">Ya tengo cuenta</a>
 </body>
+
 </html>

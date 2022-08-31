@@ -26,12 +26,13 @@ if (!$post) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $post["title"] ?></title>
+    <link rel="stylesheet" href="/assets/main.css">
 </head>
 
 <body>
     <?php include __DIR__ . "/components/header.php" ?>
     <h1><?php echo $post["title"] ?></h1>
-    <h2>Publicado por <?php echo $post["username"]?></h2>
+    <h2>Publicado por <?php echo $post["username"] ?></h2>
     <p><?php echo $post["content"] ?></p>
 
     <div class="comments">

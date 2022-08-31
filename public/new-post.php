@@ -12,12 +12,15 @@ if (!is_logged_in()) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/assets/main.css">
 </head>
+
 <body>
     <?php include __DIR__ . "/components/header.php" ?>
     <h1>New Post</h1>
@@ -31,4 +34,5 @@ if (!is_logged_in()) {
         <input type="submit" value="Publicar">
     </form>
 </body>
+
 </html>

@@ -36,7 +36,17 @@ function get_all() {
 }
 
 function create($data) {
+    $title = $data["title"];
+    $author_id = $data["author_id"];
+    $content = $data["content"];
 
+    $query = "INSERT INTO posts (title, author_id, content) 
+              VALUES('$title', $author_id, '$content');";
+    $conn = connect();
+    $result = query($conn, $query);
+    disconnect($conn);
+
+    return $result;
 }
 
 function delete($id) {

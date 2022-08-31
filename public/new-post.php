@@ -21,7 +21,7 @@ if (!is_logged_in()) {
 <body>
     <?php require __DIR__ . "/components/header.php" ?>
     <h1>Crear nuevo post</h1>
-    <form action="/posts/controller-new-post.php" method="post">
+    <form action="/controllers/controller-new-post.php" method="post">
         <label for="title">Título</label> <br>
         <input type="text" name="title" id="title"> <br>
         <label for="content">Contenido</label> <br>

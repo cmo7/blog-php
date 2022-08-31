@@ -33,11 +33,26 @@ function get_all() {
     return $result;
 }
 
+function get_all_by_post($post_id) {
+    $query = "SELECT * FROM comments WHERE post_id = $post_id;";
+    $conn = connect();
+    $result = query($conn, $query);
+    disconnect($conn);
+
+    if (!$result) {
+        return Array();
+    }
+
+    return $result;
+}
+
 function create($data) {
+    $post_id = $data["post_id"];
+    $author_id = $data["author_id"];
     $title = $data["title"];
     $content = $data["content"];
-    $query = "INSERT INTO comments (title, content) 
-              VALUES('$title', '$content');";
+    $query = "INSERT INTO comments (post_id, author_id, title, content) 
+              VALUES($post_id, $author_id, '$title', '$content');";
     $conn = connect();
     $result = query($conn, $query);
     disconnect($conn);
@@ -62,6 +77,6 @@ function update($id, $data) {
     $conn = connect();
     $result = query($conn, $query);
     disconnect($conn);
-    
+
     return $result;
 }
